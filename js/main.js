@@ -14,7 +14,7 @@ const tituloPrincipal = document.querySelector("#titulo-principal");
 
 const mostrarProductos = (productosElegidos) => {
 
-  contenedorProductos.innerHTML = "";
+  contenedorProductos.innerHTML = ""; //Borra todo el contenido 
 
   productosElegidos.forEach(producto => {
 
