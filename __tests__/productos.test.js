@@ -34,6 +34,10 @@ describe('filtrarProductos', () => {
         }
     ];
 
+    test('Manejo de array vacio', ()=>{
+        const resultado = filtrarProductos([],'pantalones');
+        expect(resultado).toHaveLength(0);
+    });
     test('filtra correctamente por categoría camperas', () => {
         const resultadoCamperas = filtrarProductos(productosTest, 'camperas');
         expect(resultadoCamperas).toHaveLength(2);
@@ -48,7 +52,7 @@ describe('filtrarProductos', () => {
         expect(resultadoRemeras).toHaveLength(1);
         expect(resultadoRemeras).toEqual(
             expect.arrayContaining([
-                expect.objectContaining({categoria:'remeras'})
+                expect.objectContaining({ categoria:'remeras' })
             ])
         );
     });
@@ -57,8 +61,22 @@ describe('filtrarProductos', () => {
         expect(resultadoPantalones).toHaveLength(1);
         expect(resultadoPantalones).toEqual(
             expect.arrayContaining([
-                expect.objectContaining({categoria:'pantalones'})
+                expect.objectContaining({ categoria:'pantalones' })
             ])
         );
     });
+    test('Manejo de categoría no existente', ()=>{
+        const resultadoOtro = filtrarProductos(productosTest,'otro');
+        expect(resultadoOtro).toHaveLength(0);
+    });
+    // Test para que falle la funcion
+    test('filtra correctamente por categoría camperas', () => {
+        const resultadoCamperas = filtrarProductos(productosTest,'CAMPERAS');
+        expect(resultadoCamperas).toHaveLength(2);
+        expect(resultadoCamperas).toEqual(
+            expect.arrayContaining([
+                expect.objectContaining({ categoria: 'CAMPERAS' })
+            ])
+        );
+    }); 
 });
