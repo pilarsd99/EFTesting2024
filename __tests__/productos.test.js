@@ -39,7 +39,7 @@ describe('filtrarProductos', () => {
         expect(resultado).toHaveLength(0);
     });
     test('Manejo de categoría no existente', ()=>{
-        const resultadoOtro = filtrarProductos(productosTest,'otro');
+        const resultadoOtro = filtrarProductos(productosTest,'gorros');
         expect(resultadoOtro).toHaveLength(0);
     });
     test('filtra correctamente por categoría camperas', () => {
