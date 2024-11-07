@@ -38,6 +38,10 @@ describe('filtrarProductos', () => {
         const resultado = filtrarProductos([],'pantalones');
         expect(resultado).toHaveLength(0);
     });
+    test('Manejo de categoría no existente', ()=>{
+        const resultadoOtro = filtrarProductos(productosTest,'otro');
+        expect(resultadoOtro).toHaveLength(0);
+    });
     test('filtra correctamente por categoría camperas', () => {
         const resultadoCamperas = filtrarProductos(productosTest, 'camperas');
         expect(resultadoCamperas).toHaveLength(2);
@@ -64,10 +68,6 @@ describe('filtrarProductos', () => {
                 expect.objectContaining({ categoria:'pantalones' })
             ])
         );
-    });
-    test('Manejo de categoría no existente', ()=>{
-        const resultadoOtro = filtrarProductos(productosTest,'otro');
-        expect(resultadoOtro).toHaveLength(0);
     });
     // Test para que falle la funcion
     test('filtra correctamente por categoría camperas', () => {
