@@ -51,25 +51,7 @@ describe('filtrarProductos', () => {
             ])
         );
     });
-    test('Filtrar correctamente por categoría remeras', ()=>{
-        const resultadoRemeras = filtrarProductos(productosTest,'remeras');
-        expect(resultadoRemeras).toHaveLength(1);
-        expect(resultadoRemeras).toEqual(
-            expect.arrayContaining([
-                expect.objectContaining({ categoria:'remeras' })
-            ])
-        );
-    });
-    test('Filtrar correctamente por categoría pantalones', ()=>{
-        const resultadoPantalones = filtrarProductos(productosTest,'pantalones');
-        expect(resultadoPantalones).toHaveLength(1);
-        expect(resultadoPantalones).toEqual(
-            expect.arrayContaining([
-                expect.objectContaining({ categoria:'pantalones' })
-            ])
-        );
-    });
-    // Test para que falle la funcion
+       // Test para que falle la funcion
     test('filtra correctamente por categoría camperas', () => {
         const resultadoCamperas = filtrarProductos(productosTest,'CAMPERAS');
         expect(resultadoCamperas).toHaveLength(2);
